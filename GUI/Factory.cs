@@ -9,7 +9,7 @@ namespace Servicios
     {
         public static IAcceso CrearAcceso()
         {
-            return new Acceso();
+            return new FakeAcceso();
         }
 
         public static IMapperProductos CrearMapperProductos()
@@ -22,9 +22,9 @@ namespace Servicios
             return new BLLProducto(CrearMapperProductos());
         }
 
-        public static FormProductos CrearFormProductos()
-        {
-            return new FormProductos(CrearBllProducto());
-        }
+        //public static FormProductos CrearFormProductos()
+        //{
+        //    return FormProductos.Instancia(CrearBllProducto());
+        //}
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Autofac;
 using Servicios;
 
 namespace GUI
@@ -23,9 +24,13 @@ namespace GUI
 
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormProductos form = Factory.CrearFormProductos();
-            form.MdiParent = this;
-            form.Show();
+            var container = ContainerConfig.Configurar();
+            using (var scope = container.BeginLifetimeScope())
+            {
+                var form = scope.Resolve<FormProductos>();
+                form.MdiParent = this;
+                form.Show();
+            }
         }
     }
 }

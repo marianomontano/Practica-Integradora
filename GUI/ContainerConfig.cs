@@ -11,11 +11,11 @@ namespace GUI
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterType<Acceso>().As<IAcceso>();
+            builder.RegisterType<FakeAcceso>().As<IAcceso>();
             builder.RegisterType<MapperProductos>().As<IMapperProductos>();
             builder.RegisterType<BLLProducto>().As<IBLLProducto>();
-            builder.RegisterType<FormProductos>().AsSelf();
-            builder.RegisterType<Menu>();
+            builder.RegisterType<Menu>().SingleInstance();
+            builder.RegisterType<FormProductos>().SingleInstance();
 
             return builder.Build();
         }

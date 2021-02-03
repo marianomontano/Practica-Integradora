@@ -8,9 +8,10 @@ namespace GUI
 {
     public partial class FormProductos : Form
     {
-        public FormProductos(IBLLProducto _Producto)
+
+        public FormProductos(IBLLProducto _producto)
         {
-            Producto = _Producto;
+            Producto = _producto;
             InitializeComponent();
         }
 
